@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
 }
 
 data class SearchArea(val minX: Int, val maxX: Int, val minY: Int, val maxY: Int) {
-    fun decrease(colder: Distance, batman: Position, futureBatman: Position): SearchArea {
+    fun decrease(colder: Distance, batman: Batman): SearchArea {
         return SearchArea(0, 2, 0, 5)
     }
 }
@@ -46,8 +46,9 @@ data class Position(val x: Int, val y: Int) {
             else -> searchArea.maxX - x
         }
     }
-
 }
+
+data class Batman(val previousPosition: Position, val position: Position)
 
 enum class Distance {
     COLDER, WARMER, SAME, UNKNOWN

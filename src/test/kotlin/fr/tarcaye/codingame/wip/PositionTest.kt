@@ -38,16 +38,18 @@ class PositionTest : Spek({
             assertThat(futureBatman).isEqualTo(Position(2, 2))
         }
     }
+
     describe("Search Area") {
         it("decrease where batman stands as it gets colder") {
             val searchArea = SearchArea(0, 5, 0, 5)
-            val batman = Position(2, 2)
-            val futureBatman = batman.move(searchArea, Distance.UNKNOWN) // 3, 2
+            val batman = Batman(Position(2, 2), Position(3, 2))
 
-            val newSearchArea = searchArea.decrease(Distance.COLDER, batman, futureBatman)
+            val newSearchArea = searchArea.decrease(Distance.COLDER, batman)
 
             assertThat(newSearchArea).isEqualTo(SearchArea(0, 2, 0, 5))
         }
 
     }
+
 })
+
