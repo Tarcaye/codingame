@@ -29,7 +29,12 @@ fun main(args: Array<String>) {
     }
 }
 
-data class SearchArea(val minX: Int, val maxX: Int, val minY: Int, val maxY: Int)
+data class SearchArea(val minX: Int, val maxX: Int, val minY: Int, val maxY: Int) {
+    fun decrease(colder: Distance, batman: Position, futureBatman: Position): SearchArea {
+        return SearchArea(0, 2, 0, 5)
+    }
+}
+
 data class Position(val x: Int, val y: Int) {
     fun move(searchArea: SearchArea, distance: Distance): Position {
         return Position(updateX(searchArea), 2)
